@@ -1,6 +1,6 @@
 # Hello world
 
-This is my first free plugin. He is really simple for now, but for future he will be powerful.
+This is my first *free* plugin. He is really simple for now, but for future he will be powerful.
 
 ### Installing
 
@@ -15,4 +15,4 @@ On frontend site you should use short code [thisSubscribe] for display subscribe
 
 ## Authors
 
-* **Oleksii Biriukov** - *Initial work* - [CaguCT](https://github.com/CaguCTjkee)
+* **Oleksii Biriukov** - [CaguCT](https://github.com/CaguCTjkee)
