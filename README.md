@@ -2,6 +2,10 @@
 
 This is my first *free* plugin. He is really simple for now, but for future he will be powerful.
 
+### How it's work
+
+After publish a new post - all subscribers with subscriber flag get notification.
+
 ### Installing
 
 Just download zip file from github and upload from wp-admin from a plugin-install page.

@@ -111,7 +111,7 @@
                 </td>
                 <th scope="col" class="manage-column column-title column-primary sortable asc">
                     <a href="/wp-admin/admin.php?page=<?php echo $_GET['page']; ?>&amp;orderby=title&amp;order=desc">
-                        <span>Title</span>
+                        <span>Subscriber</span>
                         <span class="sorting-indicator"></span>
                     </a>
                 </th>
