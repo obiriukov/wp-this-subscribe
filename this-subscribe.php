@@ -10,9 +10,13 @@
  * License: none
  */
 
+// Plugin root file
+if ( defined( 'FILE_OF_PL' ) === false ) {
+	define( 'FILE_OF_PL', __FILE__ );
+}
 // Plugin root path
 if ( defined( 'PL_ROOT' ) === false ) {
-	define( 'PL_ROOT', realpath( dirname( __FILE__ ) ) );
+	define( 'PL_ROOT', realpath( dirname( FILE_OF_PL ) ) );
 }
 // Plugin url path
 if ( defined( 'PL_URL' ) === false ) {

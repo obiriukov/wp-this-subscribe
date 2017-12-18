@@ -13,6 +13,8 @@ On frontend site you should use short code [thisSubscribe] for display subscribe
 [thisSubscribe]
 ```
 
+Also plugin will make new page, so users can unsubscribe.
+
 ## Authors
 
 * **Oleksii Biriukov** - [CaguCT](https://github.com/CaguCTjkee)
