@@ -17,7 +17,7 @@ namespace ThisSubscribe;
 class SubscriberApi {
 
 	const DB_VERSION_OPTION_NAME = 'ts_db_version';
-	const DB_VERSION = '1.2';
+	const DB_VERSION = 1.2;
 
 	/**
 	 * Creating Tables with Plugins (https://codex.wordpress.org/Creating_Tables_with_Plugins)
@@ -40,7 +40,7 @@ class SubscriberApi {
 
 			dbDelta( $sql );
 
-			add_option( self::DB_VERSION_OPTION_NAME, self::DB_VERSION );
+			add_option( self::DB_VERSION_OPTION_NAME, 1.0 );
 		}
 	}
 
@@ -54,11 +54,11 @@ class SubscriberApi {
 		$installed_ver = get_option( self::DB_VERSION_OPTION_NAME );
 		$table_name    = $wpdb->prefix . Subscriber::TABLE;
 
-		if ( $installed_ver != self::DB_VERSION ) {
+		if ( (float) $installed_ver < self::DB_VERSION ) {
 
-			if ( self::DB_VERSION === '1.1' ) {
+			if ( self::DB_VERSION < 1.1 ) {
 				$sql = 'ALTER TABLE ' . $table_name . ' ADD `hash` VARCHAR(255) NOT NULL AFTER `mail`;';
-			} elseif ( self::DB_VERSION === '1.2' ) {
+			} elseif ( self::DB_VERSION < 1.2 ) {
 				$sql = 'ALTER TABLE ' . $table_name . ' ADD `signed` INT(1) NOT NULL AFTER `hash`;';
 			}
 
