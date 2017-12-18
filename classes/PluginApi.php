@@ -150,7 +150,7 @@ class PluginApi {
 	public function abortSubscriber() {
 		$result = array();
 
-		$subscriberId = ! empty( $_COOKIE[ Subscriber::COOKIE ] ) ? (int) $_COOKIE[ Subscriber::COOKIE ] : null;
+		$subscriberId = ! empty( $_COOKIE[ Subscriber::COOKIE ] ) ? $_COOKIE[ Subscriber::COOKIE ] : null;
 
 		if ( $subscriberId !== null ) {
 
@@ -188,7 +188,7 @@ class PluginApi {
 	 */
 	public function shortCode() {
 
-		$subscriberHash = ! empty( $_COOKIE[ Subscriber::COOKIE ] ) ? (int) $_COOKIE[ Subscriber::COOKIE ] : null;
+		$subscriberHash = ! empty( $_COOKIE[ Subscriber::COOKIE ] ) ? $_COOKIE[ Subscriber::COOKIE ] : null;
 
 		// If user already subscribed
 		if ( $subscriberHash !== null ) {
@@ -244,13 +244,13 @@ class PluginApi {
 	/**
 	 * Send mail wen we insert post
 	 *
+	 * @param int $post_id
 	 * @param \WP_Post $post
-	 *
-	 * @return void
 	 */
-	public function sendInsertPost( \WP_Post $post ) {
+	public function sendInsertPost( $post_id, \WP_Post $post ) {
 
-		if ( wp_is_post_revision( $post->ID ) ) {
+		// If this is just a revision, don't send the email.
+		if ( wp_is_post_revision( $post_id ) ) {
 			return;
 		}
 

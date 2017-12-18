@@ -94,7 +94,8 @@ class AdminFrontEnd {
 		if ( $subscriberMail !== null ) {
 			$subscriber = new Subscriber( $subscriberMail );
 			if ( $subscriber->id === null ) {
-				$subscriber->mail = $subscriberMail;
+				$subscriber->mail   = $subscriberMail;
+				$subscriber->signed = 1;
 				$subscriber->save();
 
 				// Redirect

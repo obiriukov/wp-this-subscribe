@@ -51,22 +51,21 @@ class SubscriberApi {
 		global $wpdb;
 
 		$sql           = null;
-		$installed_ver = get_option( self::DB_VERSION_OPTION_NAME );
+		$installed_ver = (float) get_option( self::DB_VERSION_OPTION_NAME );
 		$table_name    = $wpdb->prefix . Subscriber::TABLE;
 
-		if ( (float) $installed_ver < self::DB_VERSION ) {
+		if ( $installed_ver < self::DB_VERSION ) {
 
-			if ( self::DB_VERSION < 1.1 ) {
-				$sql = 'ALTER TABLE ' . $table_name . ' ADD `hash` VARCHAR(255) NOT NULL AFTER `mail`;';
-			} elseif ( self::DB_VERSION < 1.2 ) {
-				$sql = 'ALTER TABLE ' . $table_name . ' ADD `signed` INT(1) NOT NULL AFTER `hash`;';
+			if ( $installed_ver < 1.2 ) {
+				$sql           = 'ALTER TABLE ' . $table_name . ' ADD `signed` INT(1) NOT NULL AFTER `hash`;';
+				$installed_ver = 1.2;
 			}
 
 			if ( $sql !== null ) {
 
 				$wpdb->query( $sql );
 
-				update_option( self::DB_VERSION_OPTION_NAME, self::DB_VERSION );
+				update_option( self::DB_VERSION_OPTION_NAME, $installed_ver );
 
 			}
 		}

@@ -119,7 +119,7 @@ You can <a href="#abort" class="this-subscribe-abort">abort</a> subscribe or <a 
 				'subscribe_abort_message'  => __( 'We sent you a mail with instruction, how you can abort subscribe.' ),
 				'unsubscribe_message'      => __( 'You successfully unsubscribed from the subscription.' ),
 				'unsubscribe_fail_message' => __( 'Wrong request.' ),
-				'post_subject'             => __( 'New post on site [blogname]' ),
+				'post_subject'             => __( 'Updates on site [blogname]' ),
 				'post_message'             => __( 'A post has been updated on site [blogname]:
 [post-title]: <a href="[post-url]" target="_blank">[post-url]</a>
 

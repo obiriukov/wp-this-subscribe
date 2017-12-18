@@ -156,7 +156,7 @@ class PluginController {
 	 */
 	public static function insertPost( $post_id, \WP_Post $post ) {
 
-		self::getInstance()->api->sendInsertPost( $post );
+		self::getInstance()->api->sendInsertPost( $post_id, $post );
 	}
 
 	/**
