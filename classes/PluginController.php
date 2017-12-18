@@ -74,7 +74,7 @@ class PluginController {
 		add_action( 'init', array( $this, 'pluginInit' ) );
 
 		// Add "ts_mails" table to WP when plugin activating
-		register_activation_hook( __FILE__, array( $this, 'install' ) );
+		register_activation_hook( PL_ROOT, array( $this, 'install' ) );
 
 		// Update DB
 		add_action( 'plugins_loaded', array( $this, 'update' ) );
