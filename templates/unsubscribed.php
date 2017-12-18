@@ -1,0 +1,1 @@
+<p><?php echo \ThisSubscribe\SettingsPage::getOption( 'unsubscribe_message' ); ?></p>
