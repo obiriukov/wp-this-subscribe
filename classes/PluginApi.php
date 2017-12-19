@@ -350,4 +350,24 @@ class PluginApi {
 			wp_insert_post( $page );
 		}
 	}
+
+	public function addPostBox() {
+		$callback = array( '\ThisSubscribe\PluginController', 'postBoxCallback' );
+		$screen   = array( 'post', 'page' );
+
+		add_meta_box( 'thisSubscribe', __( 'Send to subscribers', PL_TEXTDOMAIN ), $callback, $screen, 'side', 'high' );
+	}
+
+	public function postBoxCallback( $post, $meta ) {
+
+		// Используем nonce для верификации
+		wp_nonce_field( plugin_basename( FILE_OF_PL ), 'thisSubscriber' );
+
+		$fieldLabel = __( 'Send notice to subscribers', PL_TEXTDOMAIN );
+
+		// Field
+		echo '<label class="selectit">';
+		echo '<input value="1" type="checkbox" name="thisSubscriber" checked="checked"> ' . $fieldLabel;
+		echo '</label>';
+	}
 }

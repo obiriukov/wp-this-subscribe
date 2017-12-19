@@ -4,7 +4,7 @@
  * Plugin URI: https://caguct.com/this-subscribe
  * Description: Add subscribes from email to wordpress
  * Version: 1.0.0
- * Text Domain: caguct-com
+ * Text Domain: this-subscribe
  * Author: Oleksii Biriukov
  * Author URI: https://caguct.com/u
  * License: none
@@ -29,6 +29,10 @@ if ( defined( 'DS' ) === false ) {
 // Plugin temlate path
 if ( defined( 'PL_TEMPLATES' ) === false ) {
 	define( 'PL_TEMPLATES', PL_ROOT . DS . 'templates' );
+}
+// Plugin text domain
+if ( defined( 'PL_TEXTDOMAIN' ) === false ) {
+	define( 'PL_TEXTDOMAIN', 'this-subscribe' );
 }
 
 // Plugin autoload

@@ -67,6 +67,12 @@ class PluginController {
 		// Add admin menu
 		add_action( 'admin_menu', array( $this, 'pluginMenu' ) );
 
+		// Add meta box on admin post
+		add_action( 'add_meta_boxes', array( $this, 'addPostBox' ) );
+
+//		add_filter('manage_posts_columns' , array( $this, 'addPostColumn'));
+//		add_filter('manage_posts_custom_column' , array( $this, 'displayPostColumn'));
+
 		// Add admin init
 		add_action( 'admin_init', array( $this, 'pluginAdminInit' ) );
 
@@ -205,5 +211,13 @@ class PluginController {
 	public static function thisUnSubscribeShortCode( $attributes ) {
 
 		return self::getInstance()->api->thisUnSubscribeShortCode( $attributes );
+	}
+
+	public static function addPostBox() {
+		self::getInstance()->api->addPostBox();
+	}
+
+	public static function postBoxCallback( $post, $meta) {
+		self::getInstance()->api->postBoxCallback($post, $meta);
 	}
 }
