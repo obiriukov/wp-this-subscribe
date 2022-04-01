@@ -1,7 +1,3 @@
-# Hello world
-
-This is my first *free* plugin. He is really simple for now, but for future he will be powerful.
-
 ### How it's work
 
 After publish a new post - all subscribers with subscriber flag get notification.
@@ -18,7 +14,3 @@ On frontend site you should use short code [thisSubscribe] for display subscribe
 ```
 
 Also plugin will make new page, so users can unsubscribe.
-
-## Authors
-
-* **Oleksii Biriukov** - [CaguCT](https://github.com/CaguCTjkee)
